@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUR SHOP — Жайнамаз дүкөнү</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container navbar">
+        <h2>☪ NUR SHOP</h2>
+        <nav>
+            <a href="#home">Башкы бет</a>
+            <a href="#products">Жайнамаздар</a>
+            <a href="#regions">Облустар</a>
+            <a href="#location">Жайгашкан жер</a>
+        </nav>
+        <button id="openCart">🛒 Себет (<span id="cartCount">0</span>)</button>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="container">
+        <h1>Кооз жана сапаттуу жайнамаздар</h1>
+        <p>NUR SHOP — сиз үчүн сапаттуу жайнамаздар.</p>
+        <p>Кыргызстан боюнча жеткирүү акысыз!</p>
+        <a href="#products" class="btn">Товарларды көрүү</a>
+    </div>
+</section>
+
+<section class="container section" id="products">
+    <h2>Биздин жайнамаздар</h2>
+    <div class="products" id="productList"></div>
+</section>
+
+<section class="section regions" id="regions">
+    <div class="container">
+        <h2>Кайсы облуска жеткиребиз?</h2>
+        <p>Өзүңүздүн облусуңузду тандаңыз.</p>
+        <div class="region-grid">
+            <button class="region-button" data-region="Ош облусу">Ош облусу</button>
+            <button class="region-button" data-region="Жалал-Абад облусу">Жалал-Абад облусу</button>
+            <button class="region-button" data-region="Баткен облусу">Баткен облусу</button>
+            <button class="region-button" data-region="Чүй облусу">Чүй облусу</button>
+            <button class="region-button" data-region="Талас облусу">Талас облусу</button>
+            <button class="region-button" data-region="Нарын облусу">Нарын облусу</button>
+            <button class="region-button" data-region="Ысык-Көл облусу">Ысык-Көл облусу</button>
+        </div>
+        <p id="selectedRegion">Азырынча облус тандала элек.</p>
+    </div>
+</section>
+
+<section class="section location" id="location">
+    <div class="container">
+        <h2>📍 Биз кайда жайгашканбыз?</h2>
+        <p><strong>NUR SHOP</strong></p>
+        <p>Ош шаары, Ош облусу, Кыргызстан</p>
+        <p>Кыргызстан боюнча акысыз жеткирүү.</p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Osh%2C+Kyrgyzstan" target="_blank" rel="noopener">Картадан көрүү</a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>Байланыш</h2>
+        <p>Буйрутма берүү үчүн товарды себетке кошуңуз.</p>
+        <p>📍 Ош шаары, Кыргызстан</p>
+    </div>
+</section>
+
+<footer>
+    © 2026 NUR SHOP. Бардык укуктар корголгон.
+</footer>
+
+<!-- Себет -->
+<div class="overlay" id="cartOverlay">
+    <div class="modal">
+        <button class="close" id="closeCart">✕</button>
+        <h2>Себетиңиз</h2>
+        <div id="cartItems"></div>
+        <h3 id="cartTotal">Жалпы: 0 сом</h3>
+        <button class="btn full" id="checkoutButton">Буйрутма берүү</button>
+    </div>
+</div>
+
+<!-- Буйрутма -->
+<div class="overlay" id="orderOverlay">
+    <div class="modal">
+        <button class="close" id="closeOrder">✕</button>
+        <h2>Буйрутма берүү</h2>
+
+        <form id="orderForm">
+            <label>Атыңыз</label>
+            <input id="customerName" required placeholder="Атыңыз">
+
+            <label>Телефон номериңиз</label>
+            <input id="customerPhone" type="tel" required placeholder="+996 700 000 000">
+
+            <label>Облус</label>
+            <select id="customerRegion" required>
+                <option value="">Облус тандаңыз</option>
+                <option>Ош облусу</option>
+                <option>Жалал-Абад облусу</option>
+                <option>Баткен облусу</option>
+                <option>Чүй облусу</option>
+                <option>Талас облусу</option>
+                <option>Нарын облусу</option>
+                <option>Ысык-Көл облусу</option>
+            </select>
+
+            <label>Шаар же айыл</label>
+            <input id="customerCity" required placeholder="Мисалы: Ош шаары">
+
+            <label>Дарек</label>
+            <textarea id="customerAddress" required placeholder="Көчө, үйдүн номери"></textarea>
+
+            <label>Кошумча маалымат</label>
+            <textarea id="customerNote" placeholder="Кошумча маалымат"></textarea>
+
+            <button type="submit" class="btn full">Буйрутманы ырастоо</button>
+        </form>
+
+        <div id="orderResult" hidden></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
